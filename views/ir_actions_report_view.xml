@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ir_actions_report_form_inherit" model="ir.ui.view">
+        <field name="name">ir.actions.report.form.inherit</field>
+        <field name="model">ir.actions.report</field>
+        <field name="inherit_id" ref="base.act_report_xml_view" />
+        <field name="arch" type="xml">
+            <page name="security" position="before">
+                <page string="LibreOffice Template" name="py3o_tab"
+                    attrs="{'invisible': [('report_type', '!=', 'py3o')]}">
+                    <group name="py3o_params">
+                        <field name="py3o_multi_in_one"/>
+                        <field name="py3o_pdf" attrs="{'invisible': [('py3o_filetype', '!=', 'odt')]}"/>
+                        <field name="py3o_filetype"/>
+                        <field name="is_doc" attrs="{'invisible': [('py3o_filetype', '!=', 'odt')]}"/>
+                        <field name="module"/>
+                        <field name="py3o_template_id"/>
+                        <field name="py3o_template_fallback"/>
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+</odoo>
